@@ -1,0 +1,3 @@
+[submodule "trunk/user/devman"]
+	path = trunk/user/devman
+	url = https://gitee.com/dhi/devman.git
