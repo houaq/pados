@@ -78,6 +78,7 @@ typedef u_int8_t u8;
 #define EVM_RESTART_KOOLPROXY		    (1ULL << 46) //KKOOLPROXY
 #define EVM_RESTART_DNSQ		    (1ULL << 47) //DNS
 #define EVM_RESTART_NGROK		    (1ULL << 48) //DNS
+#define EVM_RESTART_DEVMAN 		(1ULL << 49) //DNS
 #define EVM_RESTART_REBOOT		(1ULL << 62)
 
 #define EVM_BLOCK_UNSAFE		(1ULL << 63) /* special case */
@@ -135,6 +136,7 @@ typedef u_int8_t u8;
 #define EVT_RESTART_KOOLPROXY	3 //KOOLPROXY
 #define EVT_RESTART_DNSQ	3 //DNSQ
 #define EVT_RESTART_NGROK	3 //DNSQ
+#define EVT_RESTART_DEVMAN 	3 //DNSQ
 #define EVT_RESTART_REBOOT		40
 
 struct variable

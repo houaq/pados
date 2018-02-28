@@ -307,7 +307,8 @@ write_textarea_to_file(const char* value, const char* dir_name, const char* file
 		    strcmp(extensions, ".crt") == 0 ||
 		    strcmp(extensions, ".pem") == 0)
 			file_type = 2; // this is key/cert
-		else if (strcmp(extensions, ".sh") == 0)
+		else if (strcmp(extensions, ".sh") ||
+		    strcmp(extensions, ".conf") == 0)
 			file_type = 1; // this is script
 	} else {
 		if (strcmp(file_name, "authorized_keys") == 0)
@@ -316,6 +317,7 @@ write_textarea_to_file(const char* value, const char* dir_name, const char* file
 
 	snprintf(temp_path, sizeof(temp_path), "%s/.%s", "/tmp", file_name);
 	snprintf(real_path, sizeof(real_path), "%s/%s", dir_name, file_name);
+	//httpd_log("LOG: tmp_path is  %s, real_path is %s!", temp_path, real_path);
 
 	if (file_type == 2) {
 		if (strlen(value) < 3) {
@@ -915,6 +917,7 @@ validate_asp_apply(webs_t wp, int sid)
 				if (write_textarea_to_file(value, STORAGE_KOOLPROXYM_DIR, file_name))
 					restart_needed_bits |= event_mask;
 			} else if (!strncmp(v->name, "scripts.", 8)) {
+			//	httpd_log("have go into write_textarea_to_file, filename is %s", v->name);
 				if (write_textarea_to_file(value, STORAGE_SCRIPTS_DIR, file_name))
 					restart_needed_bits |= event_mask;
 			} else if (!strncmp(v->name, "crontab.", 8)) {
@@ -1204,6 +1207,8 @@ update_variables_ex(int eid, webs_t wp, int argc, char **argv)
 		}
 		
 		if (!strcmp(action_mode, "  Save  ") || !strcmp(action_mode, " Apply ")) {
+	//		httpd_log("LOG: go into Apply ");
+
 			if (!validate_asp_apply(wp, sid))
 				websWrite(wp, "<script>no_changes_and_no_committing();</script>\n");
 			else
@@ -1372,6 +1377,7 @@ ej_notify_services(int eid, webs_t wp, int argc, char **argv)
 			restart_needed_bits &= ~events_desc[i].event_mask;
 			restart_needed_bits &= ~events_desc[i].event_unmask;
 			notify_rc(events_desc[i].notify_cmd);
+			httpd_log("notity to , filename is %s", events_desc[i].notify_cmd);
 		}
 		i++;
 	}
@@ -2061,6 +2067,11 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 #else
 	int found_app_ngrok=0;
 #endif
+#if defined(APP_DEVMAN)
+	int found_app_devman=1;
+#else
+	int found_app_devman=0;
+#endif
 #if defined(APP_KMS)
 	int found_app_kms=1;
 #else
@@ -2233,6 +2244,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		"function found_app_kms() { return %d;}\n"
 		"function found_app_dnsq() { return %d;}\n"
 		"function found_app_ngrok() { return %d;}\n" 
+		"function found_app_devman() { return %d;}\n" 
 		"function found_app_nfsd() { return %d;}\n"
 		"function found_app_smbd() { return %d;}\n"
 		"function found_app_nmbd() { return %d;}\n"
@@ -2255,6 +2267,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		found_app_kms,
 		found_app_dnsq,
 		found_app_ngrok,
+		found_app_devman,
 		found_app_nfsd,
 		found_app_smbd,
 		found_app_nmbd,

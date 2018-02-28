@@ -111,7 +111,6 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_SSWAN)		+= strongswan
 dir_$(CONFIG_FIRMWARE_INCLUDE_XUPNPD)		+= xupnpd
 dir_$(CONFIG_FIRMWARE_INCLUDE_TCPDUMP)		+= tcpdump
 dir_$(SAMBA_ENABLED)				+= samba3
-dir_$(LUA_ENABLED)				+= lua luasocket
 
 ifdef CONFIG_BLK_DEV_SD
 dir_$(CONFIG_FIRMWARE_INCLUDE_HDPARM)		+= hdparm
@@ -145,7 +144,11 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_ADBYBY)		+= adbyby
 dir_$(CONFIG_FIRMWARE_INCLUDE_LRZSZ)            += lrzsz
 dir_$(CONFIG_FIRMWARE_INCLUDE_NGROK)            += ngrok
 dir_$(CONFIG_FIRMWARE_INCLUDE_FRP)              += frp
-dir_$(CONFIG_FIRMWARE_INCLUDE_KMS)            += kms
+dir_$(CONFIG_FIRMWARE_INCLUDE_DEVMAN)           += devman 
+dir_$(CONFIG_FIRMWARE_INCLUDE_SER2NET)          += ser2net
+dir_$(CONFIG_FIRMWARE_INCLUDE_MBUSD)          	+= mbusd
+dir_$(CONFIG_FIRMWARE_INCLUDE_lua)          	+= lua-5.1.5
+dir_$(CONFIG_FIRMWARE_INCLUDE_KMS)            	+= kms
 ifdef CONFIG_MTD_UBI
 ifneq ($(STORAGE_ENABLED),y)
 dir_y						+= util-linux

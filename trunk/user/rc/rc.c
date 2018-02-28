@@ -1178,6 +1178,13 @@ handle_notifications(void)
 			restart_ngrok();
 		}
 #endif
+#if defined(APP_DEVMAN)
+		else if (strcmp(entry->d_name, RCN_RESTART_DEVMAN) == 0)
+		{
+			logmessage("restart_devman","have start restart devman");
+			restart_devman();
+		}
+#endif
 		else if (strcmp(entry->d_name, RCN_RESTART_DNSQ) == 0)
 		{
 			restart_dnsq();

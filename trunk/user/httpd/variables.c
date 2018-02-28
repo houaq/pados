@@ -174,6 +174,7 @@
 			{"scripts.started_script.sh", "File", NULL, EVM_BLOCK_UNSAFE},
 			{"scripts.shutdown_script.sh", "File", NULL, EVM_BLOCK_UNSAFE},
 			{"scripts.post_wan_script.sh", "File", NULL, EVM_BLOCK_UNSAFE},
+			{"scripts.nut.conf", "File", NULL, EVM_BLOCK_UNSAFE | EVM_RESTART_DEVMAN},
 			{"scripts.post_iptables_script.sh", "File", NULL, EVM_RESTART_FIREWALL|EVM_BLOCK_UNSAFE},
 			{"scripts.ez_buttons_script.sh", "File", NULL, EVM_BLOCK_UNSAFE},
 			{"scripts.inet_state_script.sh", "File", NULL, FALSE},
@@ -309,6 +310,49 @@
 			{"ngrok_x_lip4", "", NULL, EVM_RESTART_NGROK},
 			{"ngrok_x_lpot4", "", NULL, EVM_RESTART_NGROK},
 			{"ngrok_x_spot4", "", NULL, EVM_RESTART_NGROK},
+#endif
+#if defined(APP_DEVMAN)
+			{"devman_enable", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_show0", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_show1", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_show2", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_show3", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_show4", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_ip", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_port", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_name0", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_type0", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_port0", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_baud0", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_driver0", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_args0", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_name1", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_type1", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_port1", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_baud1", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_driver1", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_args1", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_name2", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_type2", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_port2", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_baud2", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_driver2", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_args2", "", NULL, EVM_RESTART_DEVMAN},
+/*
+			{"devman_x_name3", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_type3", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_port3", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_baud3", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_driver3", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_args3", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_name4", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_type4", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_port4", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_baud4", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_driver4", "", NULL, EVM_RESTART_DEVMAN},
+			{"devman_x_args4", "", NULL, EVM_RESTART_DEVMAN},		
+*/
+			{"scripts.nut.conf", "File", NULL, EVM_BLOCK_UNSAFE},
 #endif
 #if (BOARD_NUM_UPHY_USB3 > 0)
 			{"usb3_disable", "", NULL, EVM_RESTART_REBOOT},
@@ -1000,6 +1044,9 @@
 		{EVM_RESTART_DNSQ,		EVT_RESTART_DNSQ,		RCN_RESTART_DNSQ,	0},
 #if defined(APP_NGROK)
 		{EVM_RESTART_NGROK,		EVT_RESTART_NGROK,		RCN_RESTART_NGROK,	0},
+#endif
+#if defined(APP_DEVMAN)
+		{EVM_RESTART_DEVMAN,		EVT_RESTART_DEVMAN,		RCN_RESTART_DEVMAN,	0},
 #endif
 #endif
 #if defined(APP_SMBD) || defined(APP_NMBD)

@@ -1163,6 +1163,15 @@ void restart_ngrok(void)
 	if (count_stor_mountpoint())
 		eval("/usr/bin/ngrok.sh");
 }
+
+void restart_devman(void)
+{
+//	if (count_stor_mountpoint()){
+		logmessage("devman", "succee call eval");
+	//	doSystem("killall devman");
+		eval("/usr/sbin/devman.sh");
+//	}
+}
 /*迅雷、ADBYBY、kms*/
 static void
 restore_home_dir(void)

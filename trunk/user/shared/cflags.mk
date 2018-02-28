@@ -209,3 +209,7 @@ endif
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_KMS),y)
          CFLAGS += -DAPP_KMS
 endif
+
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_DEVMAN),y)
+         CFLAGS += -DAPP_DEVMAN
+endif

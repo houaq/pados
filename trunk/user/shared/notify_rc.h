@@ -53,6 +53,7 @@
 #define RCN_RESTART_KMS		    "restart_kms"
 #define RCN_RESTART_DNSQ	    "restart_dnsq"
 #define RCN_RESTART_NGROK	    "restart_ngrok"
+#define RCN_RESTART_DEVMAN		"restart_devman"
 #define RCN_RESTART_REBOOT		"restart_reboot"
 
 ////////////////////////////////////////////////////////////
