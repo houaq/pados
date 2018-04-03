@@ -77,8 +77,11 @@ typedef u_int8_t u8;
 #define EVM_RESTART_KMS		    (1ULL << 45) //KMS
 #define EVM_RESTART_KOOLPROXY		    (1ULL << 46) //KKOOLPROXY
 #define EVM_RESTART_DNSQ		    (1ULL << 47) //DNS
-#define EVM_RESTART_NGROK		    (1ULL << 48) //DNS
-#define EVM_RESTART_DEVMAN 		(1ULL << 49) //DNS
+#define EVM_RESTART_NGROK		    (1ULL << 48) //NGROK
+#define EVM_RESTART_DEVMAN 		(1ULL << 49) //DEVMAN
+#define EVM_RESTART_FRP 		(1ULL << 50) //FRP
+#define EVM_RESTART_MBUSD		(1ULL << 51) //MBUSD
+#define EVM_RESTART_SER2NET		(1ULL << 52) //SER2NET
 #define EVM_RESTART_REBOOT		(1ULL << 62)
 
 #define EVM_BLOCK_UNSAFE		(1ULL << 63) /* special case */
@@ -135,8 +138,11 @@ typedef u_int8_t u8;
 #define EVT_RESTART_KMS		    3 //KMS
 #define EVT_RESTART_KOOLPROXY	3 //KOOLPROXY
 #define EVT_RESTART_DNSQ	3 //DNSQ
-#define EVT_RESTART_NGROK	3 //DNSQ
-#define EVT_RESTART_DEVMAN 	3 //DNSQ
+#define EVT_RESTART_NGROK	3 //NGROK
+#define EVT_RESTART_DEVMAN 	3 //DEVMAN
+#define EVT_RESTART_FRP 	3 //FRP
+#define EVT_RESTART_MBUSD	3 //MBUSD
+#define EVT_RESTART_SER2NET	3 //SER2NET
 #define EVT_RESTART_REBOOT		40
 
 struct variable

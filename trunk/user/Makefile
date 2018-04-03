@@ -143,11 +143,11 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_XUNLEI)		+= xware
 dir_$(CONFIG_FIRMWARE_INCLUDE_ADBYBY)		+= adbyby
 dir_$(CONFIG_FIRMWARE_INCLUDE_LRZSZ)            += lrzsz
 dir_$(CONFIG_FIRMWARE_INCLUDE_NGROK)            += ngrok
-dir_$(CONFIG_FIRMWARE_INCLUDE_FRP)              += frp
 dir_$(CONFIG_FIRMWARE_INCLUDE_DEVMAN)           += devman 
+dir_$(CONFIG_FIRMWARE_INCLUDE_FRP)              += frp
 dir_$(CONFIG_FIRMWARE_INCLUDE_SER2NET)          += ser2net
 dir_$(CONFIG_FIRMWARE_INCLUDE_MBUSD)          	+= mbusd
-dir_$(CONFIG_FIRMWARE_INCLUDE_lua)          	+= lua-5.1.5
+dir_$(CONFIG_FIRMWARE_INCLUDE_lua)          	+= lua
 dir_$(CONFIG_FIRMWARE_INCLUDE_KMS)            	+= kms
 ifdef CONFIG_MTD_UBI
 ifneq ($(STORAGE_ENABLED),y)

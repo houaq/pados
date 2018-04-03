@@ -957,6 +957,8 @@ validate_asp_apply(webs_t wp, int sid)
 			snprintf(buff+buf_div, buf_div, "%s/%s", STORAGE_CRONTAB_DIR, value);
 			rename(buff, buff+buf_div);
 		}
+
+		httpd_log("set name is   %s, set value is %d", v->name, value);
 		
 		nvram_set(v->name, value);
 		nvram_modified = 1;
@@ -2067,10 +2069,25 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 #else
 	int found_app_ngrok=0;
 #endif
+#if defined(APP_MBUSD)
+	int found_app_mbusd=1;
+#else
+	int found_app_mbusd=0;
+#endif
 #if defined(APP_DEVMAN)
 	int found_app_devman=1;
 #else
 	int found_app_devman=0;
+#endif
+#if defined(APP_SER2NET)
+	int found_app_ser2net=1;
+#else
+	int found_app_ser2net=0;
+#endif
+#if defined(APP_FRP)
+	int found_app_frp=1;
+#else
+	int found_app_frp=0;
 #endif
 #if defined(APP_KMS)
 	int found_app_kms=1;
@@ -2245,6 +2262,9 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		"function found_app_dnsq() { return %d;}\n"
 		"function found_app_ngrok() { return %d;}\n" 
 		"function found_app_devman() { return %d;}\n" 
+		"function found_app_frp() { return %d;}\n" 
+		"function found_app_mbusd() { return %d;}\n" 
+		"function found_app_ser2net() { return %d;}\n" 
 		"function found_app_nfsd() { return %d;}\n"
 		"function found_app_smbd() { return %d;}\n"
 		"function found_app_nmbd() { return %d;}\n"
@@ -2268,6 +2288,9 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		found_app_dnsq,
 		found_app_ngrok,
 		found_app_devman,
+		found_app_frp,
+		found_app_mbusd,
+		found_app_ser2net,
 		found_app_nfsd,
 		found_app_smbd,
 		found_app_nmbd,

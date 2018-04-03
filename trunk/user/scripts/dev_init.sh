@@ -81,6 +81,17 @@ echo "1024 65535" > /proc/sys/net/ipv4/ip_local_port_range
 # fill storage
 mtd_storage.sh fill
 
+# prepare frp config file 
+if [ ! -f /etc/storage/frp_script.sh ]; then
+        cp /etc_ro/frp_script.sh /etc/storage/frp_script.sh
+fi
+
+# prepare ser2net config file 
+if [ ! -f /etc/storage/ser2net_script.sh ]; then
+        cp /etc_ro/ser2net_script.sh /etc/storage/ser2net_script.sh
+fi
+
+
 # prepare ssh authorized_keys
 if [ -f /etc/storage/authorized_keys ] ; then
 	cp -f /etc/storage/authorized_keys /home/root/.ssh

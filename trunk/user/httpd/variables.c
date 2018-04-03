@@ -175,6 +175,8 @@
 			{"scripts.shutdown_script.sh", "File", NULL, EVM_BLOCK_UNSAFE},
 			{"scripts.post_wan_script.sh", "File", NULL, EVM_BLOCK_UNSAFE},
 			{"scripts.nut.conf", "File", NULL, EVM_BLOCK_UNSAFE | EVM_RESTART_DEVMAN},
+			{"scripts.frp_script.sh", "File", NULL, EVM_BLOCK_UNSAFE | EVM_RESTART_FRP},
+			{"scripts.ser2net_script.sh", "File", NULL, EVM_BLOCK_UNSAFE | EVM_RESTART_SER2NET},
 			{"scripts.post_iptables_script.sh", "File", NULL, EVM_RESTART_FIREWALL|EVM_BLOCK_UNSAFE},
 			{"scripts.ez_buttons_script.sh", "File", NULL, EVM_BLOCK_UNSAFE},
 			{"scripts.inet_state_script.sh", "File", NULL, FALSE},
@@ -353,6 +355,18 @@
 			{"devman_x_args4", "", NULL, EVM_RESTART_DEVMAN},		
 */
 			{"scripts.nut.conf", "File", NULL, EVM_BLOCK_UNSAFE},
+#endif
+#if defined(APP_FRP)
+			{"frp_enable", "", NULL, EVM_RESTART_FRP},
+#endif
+#if defined(APP_SER2NET)
+			{"ser2net_enable", "", NULL, EVM_RESTART_SER2NET},
+#endif
+#if defined(APP_MBUSD)
+			{"mbusd_enable", "", NULL, EVM_RESTART_MBUSD},
+			{"mbusd_dev", "", NULL, EVM_RESTART_MBUSD},
+			{"mbusd_baud", "", NULL, EVM_RESTART_MBUSD},
+			{"mbusd_port", "", NULL, EVM_RESTART_MBUSD},
 #endif
 #if (BOARD_NUM_UPHY_USB3 > 0)
 			{"usb3_disable", "", NULL, EVM_RESTART_REBOOT},
@@ -1047,6 +1061,15 @@
 #endif
 #if defined(APP_DEVMAN)
 		{EVM_RESTART_DEVMAN,		EVT_RESTART_DEVMAN,		RCN_RESTART_DEVMAN,	0},
+#endif
+#if defined(APP_FRP)
+		{EVM_RESTART_FRP,		EVT_RESTART_FRP,		RCN_RESTART_FRP,	0},
+#endif
+#if defined(APP_MBUSD)
+		{EVM_RESTART_MBUSD,		EVT_RESTART_MBUSD,		RCN_RESTART_MBUSD,	0},
+#endif
+#if defined(APP_SER2NET)
+		{EVM_RESTART_SER2NET,		EVT_RESTART_SER2NET,		RCN_RESTART_SER2NET,	0},
 #endif
 #endif
 #if defined(APP_SMBD) || defined(APP_NMBD)

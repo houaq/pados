@@ -54,6 +54,9 @@
 #define RCN_RESTART_DNSQ	    "restart_dnsq"
 #define RCN_RESTART_NGROK	    "restart_ngrok"
 #define RCN_RESTART_DEVMAN		"restart_devman"
+#define RCN_RESTART_FRP			"restart_frp"
+#define RCN_RESTART_MBUSD		"restart_mbusd"
+#define RCN_RESTART_SER2NET		"restart_ser2net"
 #define RCN_RESTART_REBOOT		"restart_reboot"
 
 ////////////////////////////////////////////////////////////

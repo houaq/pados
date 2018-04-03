@@ -1172,6 +1172,24 @@ void restart_devman(void)
 		eval("/usr/sbin/devman.sh");
 //	}
 }
+
+void restart_frp(void)
+{
+		logmessage("frp", "succee call eval");
+		eval("/usr/sbin/frp.sh");
+}
+
+void restart_ser2net(void)
+{
+		logmessage("ser2net", "succee call eval");
+		eval("/usr/sbin/ser2net.sh");
+}
+
+void restart_mbusd(void)
+{
+		logmessage("mbusd", "succee call eval");
+		eval("/usr/sbin/mbusd.sh");
+}
 /*迅雷、ADBYBY、kms*/
 static void
 restore_home_dir(void)

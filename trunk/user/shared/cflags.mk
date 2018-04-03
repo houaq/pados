@@ -213,3 +213,15 @@ endif
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_DEVMAN),y)
          CFLAGS += -DAPP_DEVMAN
 endif
+
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_FRP),y)
+         CFLAGS += -DAPP_FRP
+endif
+
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_MBUSD),y)
+         CFLAGS += -DAPP_MBUSD
+endif
+
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_SER2NET),y)
+         CFLAGS += -DAPP_SER2NET
+endif

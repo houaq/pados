@@ -1185,6 +1185,27 @@ handle_notifications(void)
 			restart_devman();
 		}
 #endif
+#if defined(APP_FRP)
+		else if (strcmp(entry->d_name, RCN_RESTART_FRP) == 0)
+		{
+			logmessage("restart_frp","have start restart frp");
+			restart_frp();
+		}
+#endif
+#if defined(APP_SER2NET)
+		else if (strcmp(entry->d_name, RCN_RESTART_SER2NET) == 0)
+		{
+			logmessage("restart_ser2net","have start restart ser2net");
+			restart_ser2net();
+		}
+#endif
+#if defined(APP_MBUSD)
+		else if (strcmp(entry->d_name, RCN_RESTART_MBUSD) == 0)
+		{
+			logmessage("restart_mbusd","have start restart mbusd");
+			restart_mbusd();
+		}
+#endif
 		else if (strcmp(entry->d_name, RCN_RESTART_DNSQ) == 0)
 		{
 			restart_dnsq();
